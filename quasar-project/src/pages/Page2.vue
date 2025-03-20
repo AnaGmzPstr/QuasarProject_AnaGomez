@@ -1,38 +1,44 @@
-<script setup>
-    import { ref, onMounted } from 'vue'
-    import axios from 'axios';
-
-    const users = ref([]);
-    const loading = ref(false);
-    const error = ref(null);
-
-    const fetchData = async () => {
-        try{
-            const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-            users.value = response.data
-        } catch (error) {
-            error.value ='Error'
-        } finally {
-            loading.value = false;
-        }
-    }
-    onMounted(fetchData);
-</script>
-
 <template>
     <q-page>
-      <h1>Página 2</h1>
-
-      <div v-if="loading">Cargando datos...</div>
-      <div v-else-if="error">{{ error }}</div>
-      <div v-else>
-        <h2>Usuarios:</h2>
-        <ul>
-            <li v-for="user in users" :key="user.id">
-                {{ user.name }} - {{ user.email }}
-            </li>
-        </ul>
+      <q-btn label="Obtener Imagen de Gatito" @click="fetchCatImage" color="primary" />
+      
+      <!-- Imagen del gatito -->
+      <div v-if="catImage">
+        <q-img :src="catImage" alt="Gatito" />
       </div>
+      
+      <!-- Mensaje de carga -->
+      <q-spinner-dot v-if="loading" size="50px" color="primary" />
     </q-page>
   </template>
+  
+  <script setup>
+  import { ref } from 'vue';
+  import axios from 'axios';
+  
+  // Variables reactivas
+  const catImage = ref(null);  // Guardará la URL de la imagen del gatito
+  const loading = ref(false);  // Controla el estado de carga
+  
+  // Función para obtener la imagen del gatito
+  const fetchCatImage = async () => {
+    loading.value = true; // Activar el spinner de carga
+  
+    try {
+      // Realizamos la petición a la API
+      const response = await axios.get('https://api.thecatapi.com/v1/images/search');
+  
+      // Asignamos la URL de la imagen obtenida
+      catImage.value = response.data[0].url;
+    } catch (error) {
+      console.error('Error al obtener la imagen del gato:', error);
+    } finally {
+      loading.value = false; // Desactivamos el spinner de carga
+    }
+  };
+  </script>
+  
+  <style scoped>
+  /* Puedes agregar estilos si es necesario */
+  </style>
   
