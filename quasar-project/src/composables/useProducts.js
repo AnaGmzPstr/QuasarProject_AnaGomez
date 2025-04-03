@@ -12,9 +12,8 @@ export function useProducts() {
       const res = await fetch('https://fakestoreapi.com/products');
       const data = await res.json();
       products.value = data;
-  
-      // Guardar en localStorage para futuras recargas
       localStorage.setItem('products', JSON.stringify(data));
+      console.log("Productos guardados en localStorage:", localStorage.getItem('products'));
     }
   };
   
@@ -32,7 +31,7 @@ export function useProducts() {
       body: JSON.stringify(product),
     });
     const newProduct = await res.json();
-    newProduct.id = products.value.length + 1; 
+    newProduct.id = products.value.length ? Math.max(...products.value.map(p => p.id)) + 1 : 1;
     products.value.push(newProduct);
     localStorage.setItem('products', JSON.stringify(products.value));
     return newProduct;
