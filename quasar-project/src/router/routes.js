@@ -3,9 +3,9 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('src/pages/PagInit.vue') },
-      { path: 'page2', component: () => import('src/pages/PagApi.vue') },
-      { path: 'page3', component: () => import('src/pages/PagComponents.vue') },
+      { path: '', component: () => import('src/pages/ProductList.vue') },
+      { path: 'product/:id', component: () => import('src/pages/ProductDetail.vue') },
+      { path: 'product/edit/:id?', component: () => import('src/pages/ProductForm.vue') },
     ]
   },
 
