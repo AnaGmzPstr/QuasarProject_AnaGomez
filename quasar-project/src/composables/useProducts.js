@@ -4,10 +4,20 @@ export function useProducts() {
   const products = ref([]);
 
   const fetchProducts = async () => {
-    const res = await fetch('https://fakestoreapi.com/products');
-    const data = await res.json();
-    products.value = data;
+    const savedProducts = localStorage.getItem('products');
+  
+    if (savedProducts) {
+      products.value = JSON.parse(savedProducts);
+    } else {
+      const res = await fetch('https://fakestoreapi.com/products');
+      const data = await res.json();
+      products.value = data;
+  
+      // Guardar en localStorage para futuras recargas
+      localStorage.setItem('products', JSON.stringify(data));
+    }
   };
+  
 
   const fetchProduct = async (id) => {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -21,7 +31,11 @@ export function useProducts() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(product),
     });
-    return await res.json();
+    const newProduct = await res.json();
+    newProduct.id = products.value.length + 1; 
+    products.value.push(newProduct);
+    localStorage.setItem('products', JSON.stringify(products.value));
+    return newProduct;
   };
 
   const updateProduct = async (id, product) => {
@@ -30,7 +44,13 @@ export function useProducts() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(product),
     });
-    return await res.json();
+    const updatedProduct = await res.json();
+    const index = products.value.findIndex((p) => p.id === id);
+    if (index !== -1) {
+      products.value[index] = updatedProduct;
+      localStorage.setItem('products', JSON.stringify(products.value));
+    }
+    return updatedProduct;
   };
 
   const deleteProduct = async (id) => {
@@ -38,14 +58,15 @@ export function useProducts() {
       method: 'DELETE',
     });
     products.value = products.value.filter((p) => p.id !== id);
+    localStorage.setItem('products', JSON.stringify(products.value));
   };
 
-  return { 
-    products, 
-    fetchProducts, 
-    fetchProduct, 
-    createProduct, 
-    updateProduct, 
-    deleteProduct 
-};
+  return {
+    products,
+    fetchProducts,
+    fetchProduct,
+    createProduct,
+    updateProduct,
+    deleteProduct
+  };
 }

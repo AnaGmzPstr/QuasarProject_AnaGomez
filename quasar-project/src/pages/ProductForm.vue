@@ -34,3 +34,16 @@ const handleSubmit = async () => {
   router.push('/');
 };
 </script>
+<style scoped>
+.q-form {
+  max-width: 400px;
+  margin: auto;
+}
+.q-input {
+  margin-bottom: 16px;
+}
+.q-btn {
+  margin-top: 16px;
+}
+
+</style>

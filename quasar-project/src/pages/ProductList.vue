@@ -1,8 +1,8 @@
 <template>
   <q-page>
-    <q-input v-model="search" placeholder="Buscar producto" filled />
-    <q-select v-model="selectedCategory" :options="categories" label="Filtrar por categoría" filled />
-    <q-btn label="Agregar Producto" @click="$router.push('/product/edit')" color="primary" />
+    <q-input v-model="search" placeholder="Find product" filled/>
+    <q-select v-model="selectedCategory" :options="categories" label="Filter by category" filled />
+    <q-btn label="Add product" icon="add" @click="$router.push('/product/edit')" color="primary" />
     <q-list>
       <q-item v-for="product in filteredProducts" :key="product.id" clickable>
         <q-item-section avatar>
@@ -39,3 +39,21 @@ const filteredProducts = computed(() =>
   )
 );
 </script>
+<style scoped>
+.q-list {
+  max-width: 600px;
+  margin: auto;
+}
+.q-item {
+  margin: 10px 0;
+}
+.q-item-section {
+  display: flex;
+  align-items: center;
+}
+.q-item-label {
+  font-size: 1.2rem;
+}
+
+
+</style>

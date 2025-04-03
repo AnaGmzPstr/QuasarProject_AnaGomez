@@ -8,9 +8,8 @@
         </q-toolbar-title>
 
         <!-- Navegación (Menú) -->
-        <q-btn flat to="/" label="Llista de productes" />
-        <q-btn flat to="/product/:id" label="Detall" />
-        <q-btn flat to="/product/edit/:id?" label="Editar o afegir producte" />
+        <q-btn flat to="/" label="Product list" />
+        <q-btn flat to="/product/edit/:id?" label="Add product" />
       </q-toolbar>
     </q-header>
 

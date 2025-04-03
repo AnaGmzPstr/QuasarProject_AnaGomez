@@ -1,6 +1,8 @@
 <template>
   <q-page>
-    <q-btn label="Volver" @click="$router.push('/')" />
+    <q-btn icon="home" label="Return" @click="$router.push('/')" />
+
+
     <q-card>
       <q-img :src="product.image" />
       <q-card-section>
@@ -29,6 +31,16 @@ fetchProduct(route.params.id).then((data) => (product.value = data));
 .q-card {
   max-width: 400px;
   margin: auto;
+}
+.q-img {
+  max-width: 100%;
+  height: auto;
+}
+.q-card-section {
+  padding: 16px;
+}
+.text-h6 {
+  font-size: 1.5rem;
 }
 
 </style>
