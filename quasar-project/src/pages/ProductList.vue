@@ -3,6 +3,7 @@
     <q-input v-model="search" placeholder="Find product" filled/>
     <q-select v-model="selectedCategory" :options="categories" label="Filter by category" filled />
     <q-btn label="Add product" icon="add" @click="$router.push('/product/edit')" color="primary" />
+    <q-btn label="Reset products" color="negative" icon="delete" @click="reset"/>
     <q-list>
       <q-item v-for="product in filteredProducts" :key="product.id" clickable>
         <q-item-section avatar>
@@ -38,6 +39,10 @@ const filteredProducts = computed(() =>
     prod.title.toLowerCase().includes(search.value.toLowerCase())
   )
 );
+const reset = () =>{
+  localStorage.removeItem('products');
+  fetchProducts();
+}
 </script>
 <style scoped>
 .q-list {

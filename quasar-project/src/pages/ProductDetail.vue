@@ -1,8 +1,6 @@
 <template>
   <q-page>
     <q-btn icon="home" label="Return" @click="$router.push('/')" />
-
-
     <q-card>
       <q-img :src="product.image" />
       <q-card-section>
@@ -25,6 +23,8 @@ const route = useRoute();
 const product = ref({});
 
 fetchProduct(route.params.id).then((data) => (product.value = data));
+
+
 </script>
 
 <style scoped>

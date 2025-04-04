@@ -27,7 +27,7 @@ if (route.params.id) {
 
 const handleSubmit = async () => {
   if (route.params.id) {
-    await updateProduct(route.params.id, product.value);
+    await updateProduct(Number(route.params.id), product.value);
   } else {
     await createProduct(product.value);
   }
