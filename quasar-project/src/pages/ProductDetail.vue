@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-btn icon="home" label="Return" @click="$router.push('/')" />
+    <q-btn icon="list" label="Return" @click="$router.push('/')" />
     <q-card>
       <q-img :src="product.image" />
       <q-card-section>
