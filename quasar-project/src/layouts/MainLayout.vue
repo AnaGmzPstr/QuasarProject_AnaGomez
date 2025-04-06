@@ -1,10 +1,10 @@
 <template>
-  <q-layout view="hHh Lpr fF">
+  <q-layout>
     <!-- Header -->
     <q-header elevated>
       <q-toolbar>
         <q-toolbar-title>
-          Fake Store
+          Fake Store Management
         </q-toolbar-title>
 
         <!-- Navegación (Menú) -->
@@ -19,7 +19,3 @@
     </q-page-container>
   </q-layout>
 </template>
-
-<script setup>
-// No se necesitan reacciones aquí, ya que no hay estado dinámico
-</script>

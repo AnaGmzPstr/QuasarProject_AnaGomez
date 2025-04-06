@@ -1,4 +1,5 @@
 import { ref } from 'vue';
+import DummyProducts from '../assets/dummyProducts.json';
 
 export function useProducts() {
   const products = ref([]);
@@ -8,8 +9,9 @@ export function useProducts() {
     if (savedProducts) {
       products.value = JSON.parse(savedProducts);
     } else {
-      const res = await fetch('https://fakestoreapi.com/products');
-      const data = await res.json();
+      /* const res = await fetch('https://fakestoreapi.com/products');
+      const data = await res.json(); */
+      const data = DummyProducts;
       products.value = data;
       localStorage.setItem('products', JSON.stringify(data));
     }
@@ -23,8 +25,9 @@ export function useProducts() {
     if (savedProducts) {
       products = JSON.parse(savedProducts);
     } else {
-      const res = await fetch('https://fakestoreapi.com/products');
-      const products = await res.json();
+      /* const res = await fetch('https://fakestoreapi.com/products');
+      const products = await res.json(); */
+      const products = DummyProducts;
       localStorage.setItem('products', JSON.stringify(products));
     }
     return products.find(p => p.id === Number(id));

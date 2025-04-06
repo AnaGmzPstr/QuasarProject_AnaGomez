@@ -1,0 +1,51 @@
+[
+    {
+      "id": 1,
+      "title": "Classic Silver Ring",
+      "price": 59.99,
+      "category": "jewelery",
+      "description": "Elegant and timeless silver ring perfect for special occasions.",
+      "image": "https://images.unsplash.com/photo-1589674781759-c21c37956a44?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": {
+        "rate": 4.8,
+        "count": 230
+      }
+    },
+    {
+      "id": 2,
+      "title": "Cotton Crewneck T-Shirt",
+      "price": 19.99,
+      "category": "men's clothing",
+      "description": "Soft and breathable cotton t-shirt for daily wear.",
+      "image": "https://plus.unsplash.com/premium_photo-1718913936342-eaafff98834b?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": {
+        "rate": 4.3,
+        "count": 120
+      }
+    },
+    {
+      "id": 3,
+      "title": "Floral Summer Dress",
+      "price": 34.99,
+      "category": "women's clothing",
+      "description": "Lightweight and stylish dress perfect for summer days.",
+      "image": "https://images.unsplash.com/photo-1600102427329-d5b2cde7e162?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": {
+        "rate": 4.7,
+        "count": 340
+      }
+    },
+    {
+      "id": 4,
+      "title": "Wireless Headphones",
+      "price": 89.99,
+      "category": "electronics",
+      "description": "Noise-cancelling over-ear headphones with long battery life.",
+      "image": "https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?q=80&w=2013&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": {
+        "rate": 4.5,
+        "count": 560
+      }
+    }
+  ]
+  
