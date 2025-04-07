@@ -22,7 +22,7 @@
               <span class="text-caption">({{ product.rating?.rate }})</span>
             </div>
 
-            <q-btn label="Edit" color="main" @click="$router.push(`/product/edit/${product.id}`)" class="q-mt-md" />
+            <q-btn label="Edit" color="primary" @click="$router.push(`/product/edit/${product.id}`)" class="q-mt-md" />
           </q-card-section>
 
         </div>
